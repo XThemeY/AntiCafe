@@ -4,6 +4,7 @@ import { UserModule } from './user/user.module.js';
 import { VideoGameModule } from './videogame/videogame.module.js';
 import { BoardGameModule } from './boardgame/boardgame.module.js';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AppController } from './app.controller.js';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     UserModule,
     VideoGameModule,
     BoardGameModule
-  ]
+  ],
+  controllers: [AppController]
 })
 export class AppModule {}

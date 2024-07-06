@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nes
 import { VideoGameService } from './videogame.service.js';
 import { VideoGame } from '../schemas/videoGame.schema.js';
 import { CreateVideoGameDto, UpdateVideoGameDto } from '../dto/videogame.dto.js';
-import { BasicAuthGuard } from 'src/auth/auth.guard.js';
+import { BasicAuthGuard } from '../auth/auth.guard.js';
 
 @Controller('video-games')
 @UseGuards(BasicAuthGuard)

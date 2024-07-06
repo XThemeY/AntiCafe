@@ -20,9 +20,6 @@ export class VideoGame extends Document {
 
   @Prop()
   genre: string;
-
-  @Prop()
-  platform: string;
 }
 
 export const VideoGameSchema = SchemaFactory.createForClass(VideoGame);

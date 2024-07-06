@@ -26,10 +26,6 @@ export class CreateVideoGameDto {
   @IsOptional()
   @IsString()
   readonly genre?: string;
-
-  @IsOptional()
-  @IsString()
-  readonly platform?: string;
 }
 
 export class UpdateVideoGameDto {
@@ -62,8 +58,4 @@ export class UpdateVideoGameDto {
   @IsOptional()
   @IsString()
   readonly genre?: string;
-
-  @IsOptional()
-  @IsString()
-  readonly platform?: string;
 }

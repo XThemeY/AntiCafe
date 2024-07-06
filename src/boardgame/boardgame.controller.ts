@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { BoardGameService } from './boardgame.service.js';
 import { BoardGame } from '../schemas/boardGame.schema.js';
 import { CreateBoardGameDto, UpdateBoardGameDto } from '../dto/boardgame.dto.js';
+import { BasicAuthGuard } from 'src/auth/auth.guard.js';
 
 @Controller('board-games')
+@UseGuards(BasicAuthGuard)
 export class BoardGameController {
   constructor(private readonly boardGameService: BoardGameService) {}
 

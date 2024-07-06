@@ -1,9 +1,11 @@
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, UseGuards } from '@nestjs/common';
 import { VideoGameService } from './videogame.service.js';
 import { VideoGame } from '../schemas/videoGame.schema.js';
 import { CreateVideoGameDto, UpdateVideoGameDto } from '../dto/videogame.dto.js';
+import { BasicAuthGuard } from 'src/auth/auth.guard.js';
 
 @Controller('video-games')
+@UseGuards(BasicAuthGuard)
 export class VideoGameController {
   constructor(private readonly videoGameService: VideoGameService) {}
 

@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class AppController {
   @Get()
   async default(): Promise<{ status: string }> {
-    return { status: 'Server is running, Никич рак кста' };
+    return { status: 'Server is running' };
   }
 }

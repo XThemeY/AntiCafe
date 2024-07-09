@@ -3,22 +3,25 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class VideoGame extends Document {
-  @Prop({ required: true })
+  @Prop({ type: String })
   title: string;
 
-  @Prop({ required: true })
+  @Prop({ type: Number })
   releaseYear: number;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   players: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   description: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   poster: string;
 
-  @Prop()
+  @Prop({ type: [String] })
+  category: string[];
+
+  @Prop({ type: String })
   genre: string;
 }
 

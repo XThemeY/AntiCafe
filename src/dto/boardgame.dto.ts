@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsNumber, Min, Max, IsUrl, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber, Min, Max, IsUrl, IsOptional, IsArray, ArrayNotEmpty } from 'class-validator';
 
 export class CreateBoardGameDto {
   @IsNotEmpty()
@@ -38,6 +38,24 @@ export class CreateBoardGameDto {
   @IsOptional()
   @IsString()
   readonly playingTime?: string;
+
+  @IsOptional()
+  @IsArray()
+  @IsString({ each: true })
+  readonly mechanics: string[];
+
+  @IsOptional()
+  @IsNumber()
+  readonly rating: number;
+
+  @IsOptional()
+  @IsString()
+  readonly placeToStore: string;
+
+  @IsArray()
+  @IsOptional()
+  @IsString({ each: true })
+  readonly video: string[];
 }
 
 export class UpdateBoardGameDto {

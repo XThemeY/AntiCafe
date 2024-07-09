@@ -21,7 +21,7 @@ export class Transaction {
 
 @Schema()
 export class BonusAccount {
-  @Prop({ required: true, default: 0 })
+  @Prop({ type: Number, required: true, default: 0 })
   balance: number;
 
   @Prop({ type: [Transaction], default: [] })
@@ -33,22 +33,22 @@ export class Guest {
   @Prop({ required: true })
   count: number;
 
-  @Prop()
+  @Prop({ type: String })
   name: string;
 
-  @Prop()
+  @Prop({ type: String })
   phone: string;
 }
 
 @Schema()
 export class Visit {
-  @Prop({ required: true })
-  date: Date;
+  @Prop({ type: String, required: true })
+  date: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   time: string;
 
-  @Prop({ required: true, enum: ['stopcheck', 'perMinute', 'rent'] })
+  @Prop({ type: String, required: true, enum: ['stopcheck', 'perMinute', 'rent'] })
   type: string;
 
   @Prop({ type: [Guest], default: [] })
@@ -57,43 +57,43 @@ export class Visit {
 
 @Schema()
 export class Reservation {
-  @Prop({ required: true })
-  date: Date;
+  @Prop({ type: String, required: true })
+  date: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   time: string;
 
-  @Prop({ required: true, enum: ['stopcheck', 'perMinute', 'rent'] })
+  @Prop({ type: String, required: true, enum: ['stopcheck', 'perMinute', 'rent'] })
   type: string;
 }
 
 @Schema()
 export class User extends Document {
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   phone: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   name: string;
 
-  @Prop()
+  @Prop({ type: String })
   email: string;
 
-  @Prop()
+  @Prop({ type: String })
   birthDate: Date;
 
-  @Prop()
+  @Prop({ type: String })
   gender: string;
 
   @Prop({ type: BonusAccount, default: { balance: 0, transactions: [] } })
   bonusAccount: BonusAccount;
 
-  @Prop()
+  @Prop({ type: String })
   notes: string;
 
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   isBanned: boolean;
 
-  @Prop({ enum: ['Admin', 'Moderator'] })
+  @Prop({ type: String, enum: ['Admin', 'Moderator'] })
   role: string;
 
   @Prop({ type: [Visit], default: [] })

@@ -3,32 +3,44 @@ import { Document } from 'mongoose';
 
 @Schema()
 export class BoardGame extends Document {
-  @Prop({ required: true })
+  @Prop({ type: String })
   titleEn: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   titleRu: string;
 
-  @Prop({ required: true })
+  @Prop({ type: Number })
   releaseYear: number;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   players: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   description: string;
 
-  @Prop({ required: true })
+  @Prop({ type: [String] })
+  category: string[];
+
+  @Prop({ type: [String] })
+  mechanics: string[];
+
+  @Prop({ type: String })
   difficulty: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String })
   poster: string;
 
-  @Prop()
-  category: string;
+  @Prop({ type: Number })
+  rating: number;
 
-  @Prop()
+  @Prop({ type: String })
   playingTime: string;
+
+  @Prop({ type: String })
+  placeToStore: string;
+
+  @Prop({ type: [String] })
+  video: string[];
 }
 
 export const BoardGameSchema = SchemaFactory.createForClass(BoardGame);

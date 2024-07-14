@@ -19,9 +19,6 @@ export class VideoGame extends Document {
   poster: string;
 
   @Prop({ type: [String] })
-  category: string[];
-
-  @Prop({ type: [String] })
   genre: string[];
 }
 

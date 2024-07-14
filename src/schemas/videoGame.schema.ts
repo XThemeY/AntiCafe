@@ -21,8 +21,8 @@ export class VideoGame extends Document {
   @Prop({ type: [String] })
   category: string[];
 
-  @Prop({ type: String })
-  genre: string;
+  @Prop({ type: [String] })
+  genre: string[];
 }
 
 export const VideoGameSchema = SchemaFactory.createForClass(VideoGame);

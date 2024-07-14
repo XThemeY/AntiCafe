@@ -31,13 +31,14 @@ export class CreateBoardGameDto {
   @IsUrl()
   readonly poster: string;
 
+  @IsArray()
   @IsOptional()
-  @IsString()
-  readonly category?: string;
+  @IsString({ each: true })
+  readonly category: string[];
 
   @IsOptional()
   @IsString()
-  readonly playingTime?: string;
+  readonly playingTime: string;
 
   @IsOptional()
   @IsArray()

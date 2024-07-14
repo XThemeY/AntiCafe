@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsNumber, Min, Max, IsUrl, IsOptional } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber, Min, Max, IsUrl, IsOptional, IsArray } from 'class-validator';
 
 export class CreateVideoGameDto {
   @IsNotEmpty()
@@ -23,9 +23,10 @@ export class CreateVideoGameDto {
   @IsUrl()
   readonly poster: string;
 
+  @IsArray()
   @IsOptional()
-  @IsString()
-  readonly genre?: string;
+  @IsString({ each: true })
+  readonly genre: string[];
 }
 
 export class UpdateVideoGameDto {
@@ -55,7 +56,8 @@ export class UpdateVideoGameDto {
   @IsUrl()
   readonly poster?: string;
 
+  @IsArray()
   @IsOptional()
-  @IsString()
-  readonly genre?: string;
+  @IsString({ each: true })
+  readonly genre: string[];
 }
